@@ -15,18 +15,18 @@ Team details follow
 
 ### 495 Students 
 
-Joshua Garrett
+REDACTED for privacy reasons
 
 ### 394 Students
 
-Derek Finnell = (Backend + testing)  
+REDACTED for privacy reasons
 Kate Sebring  - (Backend)  
 
 ### 294 Students
 
-Ali Troncoso  - (Frontend)  
-Brian Armbrust - (Frontend)  
-Brandy Enlow - (Frontend)  
+REDACTED for privacy reasons
+REDACTED for privacy reasons
+REDACTED for privacy reasons
 
 ## Prerequisites
 
@@ -59,9 +59,7 @@ The following technologies are required for the project:
 Details on how to set up the project follow.
 
 1. Clone the repository:
-   ```bash
-   https://github.com/FranklinUniversityCompSciPracticum/2026_Spring_Team3_Repo.git
-   ```
+REDACTED for privacy reasons
 
 Details on how to run the application for the first time follow.
 
