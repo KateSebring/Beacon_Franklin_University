@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "profilePic": "../../public/profile.png",
+        "profileName": "Jack",
+        "emergencyName": "Jill",
+        "emergencyPhone": "555-1234"
+    },
+    {
+        "id": "2",
+        "profilePic": "../../public/profile.png",
+        "profileName": "Kelly",
+        "emergencyName": "Jill",
+        "emergencyPhone": "555-1234"
+    }
+
+]

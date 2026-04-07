@@ -1,0 +1,88 @@
+name: Beacon CI/CD Pipeline
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      #
+      # Setup Java
+      #
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+
+      #
+      # Run Backend Tests
+      #
+
+      - name: Run Backend Spring Tests
+        run: |
+          cd backend
+          mvn test
+
+      #
+      # Build Backend
+      #
+
+      - name: Build Backend
+        run: |
+          cd backend
+          mvn clean package -DskipTests
+
+      #
+      # Setup Node
+      #
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      #
+      # Install Dependencies
+      #
+
+      - name: Install Dependencies
+        run: |
+          cd frontend
+          npm install
+
+      #
+      # Build Frontend
+      #
+
+      - name: Build Frontend
+        run: |
+          cd frontend
+          npm run build
+
+      #
+      # Deploy
+      #
+
+      - name: Deploy
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-build
+          path: |
+            backend/target/*.jar
+            frontend/.next
+            frontend/public
+            frontend/package.json
